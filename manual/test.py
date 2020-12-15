@@ -27,18 +27,6 @@ class TestDefaultSuite(unittest.TestCase):
   def tearDown(self):
     self.driver.quit()
   
-  def test_australia(self):
-    # Test name: Australia
-    # Step # | name | target | value
-    # 1 | open | https://www.health.gov.au/resources/total-covid-19-tests-conducted-and-results | 
-    self.driver.get("https://www.health.gov.au/resources/total-covid-19-tests-conducted-and-results")
-    # 2 | waitForElementNotPresent | css=.ng-scope:nth-child(1) > .ng-binding:nth-child(2) | 30000
-    WebDriverWait(self.driver, 300000).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, ".ng-scope:nth-child(1) > .ng-binding:nth-child(2)")))
-    # 3 | storeText | css=.ng-scope:nth-child(1) > .ng-binding:nth-child(2) | tests
-    self.vars["tests"] = self.driver.find_element(By.CSS_SELECTOR, ".ng-scope:nth-child(1) > .ng-binding:nth-child(2)").text
-    # 4 | close |  | 
-    self.driver.close()
-  
   def test_bosniaandHerzegovina(self):
     # Test name: BosniaandHerzegovina
     # Step # | name | target | value
